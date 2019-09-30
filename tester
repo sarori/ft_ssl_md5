@@ -1,0 +1,88 @@
+echo "basic test in pdf"
+echo "pickle rick" | openssl md5
+echo "pickle rick" | md5
+echo "pickle rick" | ./ft_ssl md5
+
+echo "\n"
+echo "Do not pity the dead, Harry." | ./ft_ssl md5 -p
+echo "Pity the living." | ./ft_ssl md5 -q -r
+echo "And above all," > test/file
+./ft_ssl md5 test/file
+./ft_ssl md5 -r test/file
+echo "\n"
+
+./ft_ssl md5 -s "pity those that aren't following baerista on spotify."
+echo "be sure to handle edge cases carefully" | ./ft_ssl md5 -p test/file
+echo "some of this will not make sense at first" | ./ft_ssl md5 test/file
+echo "but eventually you will understand" | ./ft_ssl md5 -p -r test/file
+echo "GL HF let's go" | ./ft_ssl md5 -p -s "foo" test/file
+echo "one more thing" | ./ft_ssl md5 -r -p -s "foo" test/file -s "bar"
+echo "just to be extra clear" | ./ft_ssl md5 -r -q -p -s "foo" test/file
+
+echo "\nsha256"
+echo "https://www.youtube.com/watch?v=w-5yAtMtrSM" > test/big_smoke_order_remix
+./ft_ssl sha224 test/big_smoke_order_remix
+openssl sha224 test/big_smoke_order_remix
+
+./ft_ssl sha256 test/big_smoke_order_remix
+openssl sha256 test/big_smoke_order_remix
+
+./ft_ssl sha384 test/big_smoke_order_remix
+openssl sha384 test/big_smoke_order_remix
+
+./ft_ssl sha512 test/big_smoke_order_remix
+openssl sha512 test/big_smoke_order_remix
+
+./ft_ssl sha224 -s "wubba lubba dub dub"
+./ft_ssl sha256 -s "wubba lubba dub dub"
+./ft_ssl sha384 -s "wubba lubba dub dub"
+./ft_ssl sha512 -s "wubba lubba dub dub"
+
+
+echo "\nfile tester short file"
+openssl md5 test/short
+./ft_ssl md5 test/short
+openssl sha224 test/short
+./ft_ssl sha224 test/short
+openssl sha256 test/short
+./ft_ssl sha256 test/short
+openssl sha384 test/short
+./ft_ssl sha384 test/short
+openssl sha512 test/short
+./ft_ssl sha512 test/short
+
+echo "\n\nfile tester medium file"
+openssl md5 test/medium
+./ft_ssl md5 test/medium
+openssl sha224 test/medium
+./ft_ssl sha224 test/medium
+openssl sha256 test/medium
+./ft_ssl sha256 test/medium
+openssl sha384 test/medium
+./ft_ssl sha384 test/medium
+openssl sha512 test/medium
+./ft_ssl sha512 test/medium
+
+echo "\n\nfile tester big file"
+openssl md5 test/big
+./ft_ssl md5 test/big
+openssl sha224 test/big
+./ft_ssl sha224 test/big
+openssl sha256 test/big
+./ft_ssl sha256 test/big
+openssl sha384 test/big
+./ft_ssl sha384 test/big
+openssl sha512 test/big
+./ft_ssl sha512 test/big
+
+echo "\n\nfile tester - MAKEFILE"
+openssl md5 Makefile
+./ft_ssl md5 Makefile
+openssl sha224 Makefile
+./ft_ssl sha224 Makefile
+openssl sha256 Makefile
+./ft_ssl sha256 Makefile
+openssl sha384 Makefile
+./ft_ssl sha384 Makefile
+openssl sha512 Makefile
+./ft_ssl sha512 Makefile
